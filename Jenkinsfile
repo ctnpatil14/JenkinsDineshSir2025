@@ -53,5 +53,14 @@ pipeline {
 
 
     }
+
+    post {
+         success {
+            powershell ''' curl http://localhost:${env.Port} '''
+        }
+        failure {
+            powershell ''' Write-Host "Build Failed" '''
+        }
+    }
 }
 
