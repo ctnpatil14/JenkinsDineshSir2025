@@ -25,7 +25,10 @@ pipeline {
             steps {
               powershell '''pwd'''
               powershell '''dir'''
-               powershell '''dotnet publish -c Release -o "c:\\chetanapp"'''
+              powershell '''new-Item -Name "chetanapp" -path "c:\" '''  
+              powershell '''cd  "application\chetanapp\" ''' 
+              
+              powershell '''dotnet publish -c Release -o "c:\chetanapp"'''
             }
         }
 
