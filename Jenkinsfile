@@ -26,11 +26,15 @@ pipeline {
               powershell '''pwd'''
               powershell '''dir'''
               powershell '''new-Item -Name "chetanapp" -type directory -path "c:\\" -errorAction ignore'''  
-              powershell '''cd  "$env:JENKINS_HOME\\workspace\\$env:JOB_NAME\\application\\chetanapp" ''' 
-              powershell '''pwd'''
+              powershell '''cd  "$env:JENKINS_HOME\\workspace\\$env:JOB_NAME\\application\\chetanapp" 
+                            write-host "changing directory" 
+                            pwd
+                            dotnet publish -c Release -o "c:\\chetanapp"
+                         ''' 
+                         
                
               
-              powershell '''dotnet publish -c Release -o "c:\\chetanapp"'''
+              
             }
         }
 
