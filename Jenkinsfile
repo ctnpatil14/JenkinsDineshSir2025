@@ -8,9 +8,9 @@ pipeline {
         Port = 5030
     }
 
-    Stages {
+    stages {
 
-        Stage('checkout') {
+        stage('checkout') {
 
             steps {
                     checkout scmGit(branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/ctnpatil14/JenkinsDineshSir2025.git']])
@@ -21,14 +21,14 @@ pipeline {
 
     
 
-        Stage ('build') {
+        stage ('build') {
             steps {
 
                powershell '''dotnet publish -c Release -o "c:\\chetanapp"'''
             }
         }
 
-        Stage('publish') {
+        stage('publish') {
 
             steps {
                     powershell '''dotnet chetanapp.dll --url="http://localhost.${env.Port}"'''
