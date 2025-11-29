@@ -41,9 +41,10 @@ pipeline {
         stage('publish') {
 
             steps {
-                    powershell '''pwd'''
-                    powershell '''dir'''
-                    powershell '''dotnet chetanapp.dll --url="http://localhost.${env.Port}"'''
+                    powershell '''cd c:\\chetanapp
+                                  pwd
+                                  dir
+                    dotnet chetanapp.dll --url="http://localhost.${env.Port}" '''
                     
             }
 
