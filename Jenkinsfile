@@ -54,6 +54,7 @@ pipeline {
 
     }
 
+   /*
     post {
          success {
             powershell ''' 
@@ -65,4 +66,4 @@ pipeline {
         }
     }
 }
-
+*/
