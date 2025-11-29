@@ -44,7 +44,7 @@ pipeline {
                     powershell '''cd c:\\chetanapp
                                   pwd
                                   dir
-                                  Start-Process 'dotnet' 'chetanapp.dll'  --url="http://localhost.${env.Port}" -WindowStyle Hidden
+                                  Start-Process 'dotnet' 'chetanapp.dll'  '--url="http://localhost.${env.Port}"' -WindowStyle Hidden
                               '''
                     
             }
