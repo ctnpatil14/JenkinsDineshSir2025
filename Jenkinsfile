@@ -25,7 +25,7 @@ pipeline {
             steps {
               powershell '''pwd'''
               powershell '''dir'''
-              powershell '''new-Item -Name "chetanapp" -type directory -path "c:\\" '''  
+              powershell '''new-Item -Name "chetanapp" -type directory -path "c:\\" -errorAction ignore'''  
               powershell '''cd  "application\\chetanapp" ''' 
               powershell '''pwd'''
                
