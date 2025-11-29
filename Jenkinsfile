@@ -21,7 +21,7 @@ pipeline {
         stage ('build') {
             steps {
 
-                dotnet publish -c Release -o /workspace/JenkinsDineshSir2025
+                dotnet publish -c Release -o c:\chetanapp
             }
         }
 
