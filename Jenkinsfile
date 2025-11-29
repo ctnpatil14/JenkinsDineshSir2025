@@ -64,6 +64,6 @@ pipeline {
         failure {
             powershell ''' Write-Host "Build Failed" '''
         }
-    }
+    } */
 }
-*/
+
