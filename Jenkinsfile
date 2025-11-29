@@ -21,14 +21,14 @@ pipeline {
         stage ('build') {
             steps {
 
-                dotnet publish -c Release -o "c:\chetanapp"
+               powershell '''dotnet publish -c Release -o "c:\\chetanapp"'''
             }
         }
 
         stage('publish') {
 
             steps {
-                    dotnet chetanapp.dll --url="http://localhost.${env.Port}"
+                    powershell '''dotnet chetanapp.dll --url="http://localhost.${env.Port}"'''
                     
             }
 
