@@ -1,2 +1,2 @@
 # JenkinsDineshSir2025
-Practice Jenkins with Dinesh sir
+Practice Jenkins for dotnet
