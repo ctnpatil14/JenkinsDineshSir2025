@@ -1,0 +1,47 @@
+/* groovylint-disable-next-line CompileStatic */
+pipeline {
+   agent any
+    
+    environment {
+
+        Port = 5030
+    }
+
+    stage('checkout') {
+
+            steps {
+                    checkout scmGit(branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/ctnpatil14/JenkinsDineshSir2025.git']])
+                    
+            }
+
+        }
+
+    
+
+        stage ('build') {
+            steps {
+
+                dotnet publish -c Release -o /workspace/JenkinsDineshSir2025
+            }
+        }
+
+        stage('publish') {
+
+            steps {
+                    dotnet chetanapp.dll --url="http://localhost.${env.Port}"
+                    
+            }
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+}
