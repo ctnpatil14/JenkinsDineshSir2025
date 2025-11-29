@@ -44,7 +44,7 @@ pipeline {
                     powershell '''cd c:\\chetanapp
                                   pwd
                                   dir
-                                  Start-Process "dotnet" "chetanapp.dll --url='http://localhost:${env.Port}'" -WindowStyle Hidden
+                                  Start-Process "dotnet" "chetanapp.dll --url='http://localhost:$env:Port'" -WindowStyle Hidden
                               '''
                     
             }
@@ -57,8 +57,8 @@ pipeline {
     post {
          success {
             powershell ''' 
-                        write-host " http://localhost:${env.Port} "
-                        curl http://localhost:${env.Port} '''
+                        write-host " http://localhost:$env:Port "
+                        curl http://localhost:$env:Port '''
         }
         failure {
             powershell ''' Write-Host "Build Failed" '''
