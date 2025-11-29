@@ -23,8 +23,8 @@ pipeline {
 
         stage ('build') {
             steps {
-               sh ''' pwd '''
-               sh ''' ls -lrt'''
+              sh ' pwd '
+              sh ' ls -lrt'
                powershell '''dotnet publish -c Release -o "c:\\chetanapp"'''
             }
         }
@@ -32,8 +32,8 @@ pipeline {
         stage('publish') {
 
             steps {
-                    sh ''' pwd '''
-                    sh ''' ls -lrt'''
+                    sh ' pwd '
+                    sh ' ls -lrt'
                     powershell '''dotnet chetanapp.dll --url="http://localhost.${env.Port}"'''
                     
             }
